@@ -15,13 +15,14 @@ public class Command_Date extends ListenerAdapter {
 	PircBotX bot = SjBot.bot;
 	
 	public void onMessage(MessageEvent msg) {
-		
-		isFrozen = SjBot.getFrozen();
-		if (isFrozen == false ) {
-			bot.sendMessage(msg.getChannel(), "The current time is: "+new Date());
-			System.out.println("Ran command "+cmdName);
-		}else{
-			System.out.println("Bot is frozen");
-		}
+		if (msg.getMessage().startsWith(SjBot.pref+cmdName) || msg.getMessage().startsWith(SjBot.pref+" "+cmdName)){
+			isFrozen = SjBot.getFrozen();
+			if (isFrozen == false ) {
+				bot.sendMessage(msg.getChannel(), "The current time is: "+new Date());
+				System.out.println("Ran command "+cmdName);
+			}else{
+				System.out.println("Bot is frozen");
+			}
+		}	
 	}	
 }

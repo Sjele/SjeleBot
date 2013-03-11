@@ -1,5 +1,6 @@
 package plugins;
 
+import Annotations.Plugin;
 import main.SjBot;
 import java.util.Date;
 import org.pircbotx.*;
@@ -7,7 +8,7 @@ import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.MessageEvent;
 
 
-
+@Plugin(id = "SjBot Date", clazz = Command_Date.class)
 public class Command_Date extends ListenerAdapter {
 	
 	private static boolean isFrozen;
